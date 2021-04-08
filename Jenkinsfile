@@ -28,7 +28,7 @@ pipeline {
 
         stage('Build Docker image'){
             steps {
-                sh 'docker build -t anvbhaskar/docker_jenkins_pipeline:${BUILD_NUMBER} .'
+                sh 'docker build -t pankaj134/hello-python:${BUILD_NUMBER} .'
             }
         }
 
@@ -36,20 +36,20 @@ pipeline {
             
             steps {
                  withCredentials([string(credentialsId: 'DockerId', variable: 'Dockerpwd')]) {
-                    sh "docker login -u anvbhaskar -p ${Dockerpwd}"
+                    sh "docker login -u pankaj134 -p Jashan@1996}"
                 }
             }                
         }
 
         stage('Docker Push'){
             steps {
-                sh 'docker push anvbhaskar/docker_jenkins_pipeline:${BUILD_NUMBER}'
+                sh 'docker push pankaj134/hello-python:${BUILD_NUMBER}'
             }
         }
         
         stage('Docker deploy'){
             steps {
-                sh 'docker run -itd -p 8081:8080 anvbhaskar/springboot:0.0.3'
+                sh 'docker run -itd -p 8082:8082 anvbhaskar/hello-python:0.0.3'
             }
         }
 
