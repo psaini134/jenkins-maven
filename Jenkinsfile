@@ -33,16 +33,16 @@ pipeline {
 
         stage('Build Docker image'){
             steps {
-                sh 'docker build -t pankaj134/hello-python:${BUILD_NUMBER} .'
+                sh "docker build -t pankaj134/hello-python:${BUILD_NUMBER} ."
             }
         }
 
         stage('Docker Login'){
             
             steps {
-                 withCredentials([string(credentialsId: 'DockerId', variable: 'Dockerpwd')]) {
+                 
                     sh "docker login -u pankaj134 -p Jashan@1996}"
-                }
+                
             }                
         }
 
