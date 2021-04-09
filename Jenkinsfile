@@ -36,7 +36,7 @@ pipeline {
             
             steps {
                  
-                    sh "docker login -u pankaj134 -p Jashan@1996}"
+                    sh "docker login -u pankaj134 -p Saini@123}"
                 
             }                
         }
