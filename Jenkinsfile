@@ -33,34 +33,11 @@ pipeline {
 
 
         
-        stage('Docker Login'){
-            
-            steps {
-                 
-                    sh "docker login -u pankaj134 -p Saini@123}"
-                
-            }                
-        }
-		
-		
-
-        stage('Docker Push'){
-            steps {
-                sh 'docker push pankaj134/hello-python:${BUILD_NUMBER}'
-            }
-        }
         
-        stage('Docker deploy'){
-            steps {
-                sh 'docker run -itd -p 8082:8082 anvbhaskar/hello-python:0.0.3'
-            }
-        }
+        
+        
 
         
-        stage('Archving') { 
-            steps {
-                 archiveArtifacts '**/target/*.jar'
-            }
-        }
+        
     }
 }
