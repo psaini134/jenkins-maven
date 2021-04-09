@@ -31,12 +31,7 @@ pipeline {
         }
 
 
-        stage('Build Docker image'){
-            steps {
-                sh "docker build -t pankaj134/hello-python:${BUILD_NUMBER} ."
-            }
-        }
-
+        
         stage('Docker Login'){
             
             steps {
@@ -45,6 +40,8 @@ pipeline {
                 
             }                
         }
+		
+		
 
         stage('Docker Push'){
             steps {
